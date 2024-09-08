@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: white;
+    border: none;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    height: 100vh;
+    background-color: #959585;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.qustion {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 20vh;
+}
+
+.qust {
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.options {
+    width: 60vmin;
+    height: 6rem;
+    position: relative;
+    top: 8rem;
+}
+
+.opt {
+    height: 3rem;
+    width: 50vmin;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    background-color: #000000;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 1rem;
+    margin: 0.2rem;
+}
+
+.opt:hover,
+.new:hover {
+    border: 2px solid rgb(0, 255, 17);
+    box-shadow: 0 0 1rem rgb(1, 253, 18);
+}
+
+.new-btn {
+    width: 100vw;
+    height: 4rem;
+    position: relative;
+    top: 50px;
+}
+
+.new {
+    height: 3rem;
+    width: 10rem;
+    font-size: 1.5rem;
+    border-radius: 1.5rem;
+    background-color: rgb(92, 133, 133);
+}
