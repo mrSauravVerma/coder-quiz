@@ -1,14 +1,8 @@
 let qust = document.querySelector(".qust");
-let opt1 = document.querySelector("#opt1");
-let opt2 = document.querySelector("#opt2");
-let opt3 = document.querySelector("#opt3");
-let opt4 = document.querySelector("#opt4");
+let opt = document.querySelectorAll(".opt");
 let btn = document.querySelector(".new");
 
-console.log(qust.innerText);
-
-opt1.style.display = "none";
-qust.style.display = "none";
+let qustIndex;
 
 let questions = [
     "What is JavaScript, and how is it different from Java?",
@@ -116,3 +110,54 @@ let answere = [
     "Chain"
 ];
 
+let rn_num = (max) => {
+    let num = Math.floor(Math.random() * max)
+    return num;
+}
+
+let checkOpt = (optText1, optText0, i) => {
+    if (optText1 === optText0) {
+        opt[i].innerText = answere[rn_num(49)];
+    }
+}
+
+let realAns = (qustIndex) => {
+    opt[rn_num(3)].innerText = answere[qustIndex];
+    console.log(answere[qustIndex]);
+
+}
+
+let bgColor = () => {
+    for (option of opt) {
+        option.style.backgroundColor = "black";
+    }
+}
+
+let checkAns = (optIndex) => {
+    if (optIndex.innerText === answere[qustIndex]) {
+        optIndex.style.backgroundColor = "green";
+    } else {
+        optIndex.style.backgroundColor = "red";
+    }
+};
+
+let pik_qust = () => {
+    qustIndex = rn_num(49);
+    qust.innerText = questions[qustIndex];
+    for (let i = 0; i < opt.length; i++) {
+        opt[i].innerText = answere[rn_num(49)];
+
+        if (i >= 1) {
+            checkOpt(opt[i].innerText, opt[i - 1].innerText, i);
+        }
+    }
+
+    bgColor();
+    realAns(qustIndex);
+}
+
+btn.addEventListener("click", pik_qust);
+opt[0].addEventListener("click", function () { checkAns(opt[0]); });
+opt[1].addEventListener("click", function () { checkAns(opt[1]); });
+opt[2].addEventListener("click", function () { checkAns(opt[2]); });
+opt[3].addEventListener("click", function () { checkAns(opt[3]); });
