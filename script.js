@@ -111,8 +111,7 @@ let answere = [
 ];
 
 let rn_num = (max) => {
-    let num = Math.floor(Math.random() * max)
-    return num;
+    return Math.floor(Math.random() * max);
 }
 
 let checkOpt = (optText1, optText0, i) => {
@@ -122,15 +121,8 @@ let checkOpt = (optText1, optText0, i) => {
 }
 
 let realAns = (qustIndex) => {
-    opt[rn_num(3)].innerText = answere[qustIndex];
+    opt[rn_num(4)].innerText = answere[qustIndex]; // Corrected to 4 options
     console.log(answere[qustIndex]);
-
-}
-
-let bgColor = () => {
-    for (option of opt) {
-        option.style.backgroundColor = "black";
-    }
 }
 
 let checkAns = (optIndex) => {
@@ -139,20 +131,19 @@ let checkAns = (optIndex) => {
     } else {
         optIndex.style.backgroundColor = "red";
     }
-};
+}
 
 let pik_qust = () => {
     qustIndex = rn_num(49);
     qust.innerText = questions[qustIndex];
+
     for (let i = 0; i < opt.length; i++) {
         opt[i].innerText = answere[rn_num(49)];
-
         if (i >= 1) {
             checkOpt(opt[i].innerText, opt[i - 1].innerText, i);
         }
     }
 
-    bgColor();
     realAns(qustIndex);
 }
 
